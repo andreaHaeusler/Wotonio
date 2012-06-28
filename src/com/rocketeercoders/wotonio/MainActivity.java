@@ -13,7 +13,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	Button b;
 	TextView tvInfo;
 	int waterCounter = 0;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -34,7 +34,8 @@ public class MainActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View arg0) {
 		waterCounter = waterCounter + 1;
-		tvInfo.setText("You have had " + waterCounter +  " glass(s) of (subButton for whatever was drunk)!");
+		tvInfo.setText("You have had " + waterCounter
+				+ " glass(s) of (subButton for whatever was drunk)!");
 	}
 
 }
