@@ -1,6 +1,5 @@
 package com.rocketeercoders.wotonio.test;
 
-import android.os.Handler;
 import android.test.UiThreadTest;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,11 +13,9 @@ public class MainActivityTest extends
 	private TextView tv;
 	private Button b;
 	private String initialText, textFormat;
-	private Handler handler;
 
 	public MainActivityTest() {
 		super("com.rocketeercoders.wotonio.MainActivity", MainActivity.class);
-		handler = new Handler();
 	}
 
 	@Override
