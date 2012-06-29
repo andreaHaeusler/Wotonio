@@ -1,7 +1,7 @@
 package com.rocketeercoders.wotonio;
 
 import android.app.Activity;
-import android.app.Dialog;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -24,7 +24,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		tvInfo = (TextView) findViewById(R.id.tvMessages);
 		b = (Button) findViewById(R.id.bLetsGetDrinking);
 		b.setOnClickListener(this);
-
+		loadFromDB();
+		if(waterCounter > 0)
+			updateMessage();
 	}
 
 	@Override
@@ -39,40 +41,36 @@ public class MainActivity extends Activity implements OnClickListener {
 		switch (arg0.getId())
 		{
 			case R.id.bLetsGetDrinking:
-				loadFromDB();
+				waterCounter++;
 				saveInDB();
-				tvInfo.setText("Another glass of water!? WooHoo!! That makes "
-						+ waterCounter + " glasses so far.");
+			updateMessage();
 				
 			break;
 		}
 		
 	}
-	
-	private void loadFromDB()
+
+	private void updateMessage()
 	{
-		DBClass counter = new DBClass(MainActivity.this);
-		counter.openDatabse();
-		waterCounter = counter.getCount();
-		
-		if(waterCounter == 0)
-		{
-			tvInfo.setText("Well Done! Your first glass of water. The first of many I'm sure");
-		}
-		
-		counter.closeDatabase();
+		tvInfo.setText("Another glass of water!? WooHoo!! That makes "
+				+ waterCounter + " glasses so far.");
 	}
 
 	private void saveInDB()
 	{
-		DBClass counter = new DBClass(MainActivity.this);
-		counter.openDatabse();
-		counter.addAClassOfWater(waterCounter);
-		counter.closeDatabase();
+		DBClass db = new DBClass(MainActivity.this);
+		db.openDatabse();
+		db.addAGlassOfWater(waterCounter);
+		db.closeDatabase();
 	}
-	
-	
-	
-	
+
+	private void loadFromDB()
+	{
+		DBClass db = new DBClass(MainActivity.this);
+		db.openDatabse();
+		waterCounter = db.getCount();
+		db.closeDatabase();
+	}
+
 
 }
