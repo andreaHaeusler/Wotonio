@@ -9,12 +9,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBClass
 {
 	private static final String DATABASE_NAME = "KeepingTrackOfWaterDrunk";
-	public static final int DATABASE_VERSION = 0;
+	public static final int DATABASE_VERSION = 1;
 	private static final String DATABASE_TABLE = "waterTable";
 	private static final String KEY_COUNT = "count";
 	
 	private DbHelper ourHelper;
-	private Context ourContext;
+	private Context buttonHasBeenPushed;
 	private SQLiteDatabase ourDatabase;
 	
 	
@@ -31,7 +31,7 @@ public class DBClass
 		{
 			// TODO Auto-generated method stub
 			db.execSQL("CREATE TABLE " + DATABASE_TABLE + " (" +
-					KEY_COUNT + " INTEGER");
+					KEY_COUNT + " INTEGER)");
 			
 		}
 
@@ -47,11 +47,11 @@ public class DBClass
 	}
 	
 	public DBClass (Context c){
-		ourContext = c;
+		buttonHasBeenPushed = c;
 	}
 	
 	public DBClass openDatabse(){
-		ourHelper =new DbHelper(ourContext);
+		ourHelper =new DbHelper(buttonHasBeenPushed);
 		ourDatabase = ourHelper.getWritableDatabase();
 		return this;
 	}
@@ -60,12 +60,17 @@ public class DBClass
 		ourHelper.close();
 	}
 
+	public int getCount()
+	{
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
-	public long continueCounting(int count)
+	public void addAClassOfWater(int waterCounter)
 	{
 		// TODO Auto-generated method stub
 		ContentValues cv = new ContentValues();
-		cv.put(KEY_COUNT, count);
-		return ourDatabase.insert(DATABASE_NAME, null, cv);
+		cv.put(KEY_COUNT, waterCounter);
+		ourDatabase.insert(DATABASE_TABLE, null, cv);
 	}
 }
