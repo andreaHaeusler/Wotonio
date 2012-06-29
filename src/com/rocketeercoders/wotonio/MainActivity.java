@@ -1,6 +1,7 @@
 package com.rocketeercoders.wotonio;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -13,6 +14,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	Button b;
 	TextView tvInfo;
 	int waterCounter = 0;
+
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -33,9 +35,28 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View arg0) {
-		waterCounter = waterCounter + 1;
-		tvInfo.setText("You have had " + waterCounter
-				+ " glass(s) of (subButton for whatever was drunk)!");
+		switch (arg0.getId()){
+		case R.id.bLetsGetDrinking:
+			DBClass counter = new DBClass(MainActivity.this);
+			counter.openDatabse();
+			counter.continueCounting(waterCounter);
+			counter.closeDatabase();
+			
+			break;
+		}
+		
+		//if(waterCounter == 0){
+			//tvInfo.setText("Well Done! Your first glass of water. The first of many I'm sure");
+			//waterCounter = waterCounter + 1;
+		//}
+		//else{
+			//waterCounter = waterCounter + 1;
+			//tvInfo.setText("Another?! WooHoo!! That makes " + waterCounter 
+				//	+ " glasses of water so far!");
+		//}
+		
 	}
+	
+	
 
 }
