@@ -54,7 +54,10 @@ public class MainActivity extends Activity implements OnClickListener {
 			//tvInfo.setText("Another?! WooHoo!! That makes " + waterCounter 
 				//	+ " glasses of water so far!");
 		//}
-		
+
+		waterCounter = waterCounter + 1;
+		tvInfo.setText(String.format(getString(R.string.you_have_had),
+				waterCounter));
 	}
 	
 	
