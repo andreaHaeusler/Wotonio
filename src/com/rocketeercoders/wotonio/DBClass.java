@@ -14,7 +14,7 @@ public class DBClass
 	private static final String KEY_COUNT = "count";
 	
 	private DbHelper ourHelper;
-	private Context ourContext;
+	private Context buttonHasBeenPushed;
 	private SQLiteDatabase ourDatabase;
 	
 	
@@ -47,11 +47,11 @@ public class DBClass
 	}
 	
 	public DBClass (Context c){
-		ourContext = c;
+		buttonHasBeenPushed = c;
 	}
 	
 	public DBClass openDatabse(){
-		ourHelper =new DbHelper(ourContext);
+		ourHelper =new DbHelper(buttonHasBeenPushed);
 		ourDatabase = ourHelper.getWritableDatabase();
 		return this;
 	}
