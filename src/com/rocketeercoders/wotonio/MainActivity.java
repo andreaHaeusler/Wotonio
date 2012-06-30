@@ -1,7 +1,6 @@
 package com.rocketeercoders.wotonio;
 
 import android.app.Activity;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -50,7 +49,6 @@ public class MainActivity extends Activity implements OnClickListener {
 			db.clearDBStructure();
 			db.closeDatabase();
 			break;
-
 		}
 		updateMessage();
 	}
@@ -77,5 +75,4 @@ public class MainActivity extends Activity implements OnClickListener {
 		waterCounter = db.getCount();
 		db.closeDatabase();
 	}
-
 }
