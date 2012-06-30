@@ -11,7 +11,7 @@ public class MainActivityTest extends
 
 	private MainActivity activity;
 	private TextView tv;
-	private Button b;
+	private Button b, resetB;
 	private String initialText, textFormat;
 
 	public MainActivityTest() {
@@ -26,6 +26,8 @@ public class MainActivityTest extends
 				.findViewById(com.rocketeercoders.wotonio.R.id.tvMessages);
 		b = (Button) activity
 				.findViewById(com.rocketeercoders.wotonio.R.id.bLetsGetDrinking);
+		resetB = (Button) activity
+				.findViewById(com.rocketeercoders.wotonio.R.id.bResetDB);
 		initialText = activity
 				.getString(com.rocketeercoders.wotonio.R.string.not_yet_clicked);
 		textFormat = activity
@@ -39,7 +41,9 @@ public class MainActivityTest extends
 
 	}
 
-	public void testText() {
+	@UiThreadTest
+	public void testResetButton() {
+		resetB.performClick();
 		assertEquals(initialText, (String) tv.getText());
 	}
 

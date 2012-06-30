@@ -22,4 +22,13 @@
         android:layout_marginBottom="25dp"
         android:text="@string/have_a_drink" />
 
+    <Button
+        android:id="@+id/bResetDB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="28dp"
+        android:text="Reset" />
+
 </RelativeLayout>

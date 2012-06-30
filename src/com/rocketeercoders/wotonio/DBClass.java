@@ -68,10 +68,14 @@ public class DBClass {
 	}
 
 	public void addAGlassOfWater(int waterCounter) {
-		// TODO Auto-generated method stub
 		ContentValues cv = new ContentValues();
 		cv.put(KEY_COUNT, waterCounter);
 		ourDatabase.insert(DATABASE_TABLE, null, cv);
+	}
+
+	public void clearDBStructure() {
+		ourHelper.onUpgrade(ourDatabase, 0, 0);
+
 	}
 
 }

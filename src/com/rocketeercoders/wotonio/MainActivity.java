@@ -11,10 +11,9 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity implements OnClickListener {
 
-	Button b;
+	Button b, bResetDB;
 	TextView tvInfo;
 	int waterCounter = 0;
-
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -23,9 +22,11 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		tvInfo = (TextView) findViewById(R.id.tvMessages);
 		b = (Button) findViewById(R.id.bLetsGetDrinking);
+		bResetDB = (Button) findViewById(R.id.bResetDB);
 		b.setOnClickListener(this);
+		bResetDB.setOnClickListener(this);
 		loadFromDB();
-		if(waterCounter > 0)
+		if (waterCounter > 0)
 			updateMessage();
 	}
 
@@ -36,41 +37,45 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 
 	@Override
-	public void onClick(View arg0) 
-	{
-		switch (arg0.getId())
-		{
-			case R.id.bLetsGetDrinking:
-				waterCounter++;
-				saveInDB();
-			updateMessage();
-				
+	public void onClick(View arg0) {
+		switch (arg0.getId()) {
+		case R.id.bLetsGetDrinking:
+			waterCounter++;
+			saveInDB();
 			break;
+		case R.id.bResetDB:
+			waterCounter = 0;
+			DBClass db = new DBClass(MainActivity.this);
+			db.openDatabse();
+			db.clearDBStructure();
+			db.closeDatabase();
+			break;
+
 		}
-		
+		updateMessage();
 	}
 
-	private void updateMessage()
-	{
-		tvInfo.setText("Another glass of water!? WooHoo!! That makes "
-				+ waterCounter + " glasses so far.");
+	private void updateMessage() {
+		if (waterCounter == 0) {
+			tvInfo.setText(getString(R.string.not_yet_clicked));
+		} else {
+			tvInfo.setText(String.format(getString(R.string.you_have_had),
+					waterCounter));
+		}
 	}
 
-	private void saveInDB()
-	{
+	private void saveInDB() {
 		DBClass db = new DBClass(MainActivity.this);
 		db.openDatabse();
 		db.addAGlassOfWater(waterCounter);
 		db.closeDatabase();
 	}
 
-	private void loadFromDB()
-	{
+	private void loadFromDB() {
 		DBClass db = new DBClass(MainActivity.this);
 		db.openDatabse();
 		waterCounter = db.getCount();
 		db.closeDatabase();
 	}
-
 
 }
