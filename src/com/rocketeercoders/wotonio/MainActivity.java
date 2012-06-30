@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity implements OnClickListener {
 
-	Button b;
+	Button b, bResetDB;
 	TextView tvInfo;
 	int waterCounter = 0;
 
@@ -21,7 +21,9 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		tvInfo = (TextView) findViewById(R.id.tvMessages);
 		b = (Button) findViewById(R.id.bLetsGetDrinking);
+		bResetDB = (Button) findViewById(R.id.bResetDB);
 		b.setOnClickListener(this);
+		bResetDB.setOnClickListener(this);
 		loadFromDB();
 		if (waterCounter > 0)
 			updateMessage();
@@ -39,15 +41,25 @@ public class MainActivity extends Activity implements OnClickListener {
 		case R.id.bLetsGetDrinking:
 			waterCounter++;
 			saveInDB();
-			updateMessage();
+			break;
+		case R.id.bResetDB:
+			waterCounter = 0;
+			DBClass db = new DBClass(MainActivity.this);
+			db.openDatabse();
+			db.clearDBStructure();
+			db.closeDatabase();
 			break;
 		}
-
+		updateMessage();
 	}
 
 	private void updateMessage() {
-		tvInfo.setText("Another glass of water!? WooHoo!! That makes "
-				+ waterCounter + " glasses so far.");
+		if (waterCounter == 0) {
+			tvInfo.setText(getString(R.string.not_yet_clicked));
+		} else {
+			tvInfo.setText(String.format(getString(R.string.you_have_had),
+					waterCounter));
+		}
 	}
 
 	private void saveInDB() {

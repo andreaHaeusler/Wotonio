@@ -2,11 +2,10 @@
 <resources>
 
     <string name="app_name">Wotonio</string>
-    <string name="not_yet_clicked">Not yet clicked.</string>
+    <string name="not_yet_clicked">Welcome Liquid Sponge! Let\'s get drink\'n!.</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="have_a_drink">Have a Drink?</string>
-    <string name="you_have_had">You have had %d glass(s) of (subButton for whatever
-		was drunk)!</string>
+    <string name="you_have_had">Another glass of water!? WooHoo!! That makes %d glasses so far.</string>
 
 </resources>
