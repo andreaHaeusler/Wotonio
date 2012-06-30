@@ -64,7 +64,6 @@ public class DBClass {
 			dbValue = c.getInt(0);
 		}
 
-		dbValue = c.getInt(0);
 		return dbValue;
 	}
 
