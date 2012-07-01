@@ -8,5 +8,8 @@
     <string name="have_a_drink">Have a Drink?</string>
     <string name="first_click">Well done! The first glass of many I\'m sure ;-)</string>
     <string name="you_have_had">Another glass of water!? WooHoo!! That makes %d glasses so far.</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_drink">Drink</string>
+    <string name="title_activity_graph">Graph</string>
 
 </resources>

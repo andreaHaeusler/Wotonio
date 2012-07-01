@@ -1,5 +1,7 @@
 package com.rocketeercoders.wotonio;
 
+import java.sql.Date;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -11,6 +13,7 @@ public class DBClass {
 	public static final int DATABASE_VERSION = 1;
 	private static final String DATABASE_TABLE = "waterTable";
 	private static final String KEY_COUNT = "count";
+	private static final String KEY_TIMESTAMP = "timestamp";
 
 	private DbHelper ourHelper;
 	private Context buttonHasBeenPushed;
@@ -26,7 +29,7 @@ public class DBClass {
 		public void onCreate(SQLiteDatabase db) {
 			// TODO Auto-generated method stub
 			db.execSQL("CREATE TABLE " + DATABASE_TABLE + " (" + KEY_COUNT
-					+ " INTEGER)");
+					+ " INTEGER, " + KEY_TIMESTAMP + " INTEGER)");
 
 		}
 
@@ -56,7 +59,7 @@ public class DBClass {
 
 	public int getCount() {
 		int dbValue = 0;
-		String[] columns = new String[] { KEY_COUNT };
+		String[] columns = new String[] { KEY_COUNT, KEY_TIMESTAMP };
 		Cursor c = ourDatabase.query(DATABASE_TABLE, columns, null, null, null,
 				null, null);
 
@@ -66,10 +69,12 @@ public class DBClass {
 
 		return dbValue;
 	}
+	
 
 	public void addAGlassOfWater(int waterCounter) {
 		ContentValues cv = new ContentValues();
 		cv.put(KEY_COUNT, waterCounter);
+		cv.put(KEY_TIMESTAMP, System.currentTimeMillis()/1000L);
 		ourDatabase.insert(DATABASE_TABLE, null, cv);
 	}
 

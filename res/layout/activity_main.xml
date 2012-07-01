@@ -3,16 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/tvMessages"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:padding="@dimen/padding_medium"
-        android:text="@string/not_yet_clicked"
-        tools:context=".MainActivity" />
-
     <Button
         android:id="@+id/bResetDB"
         android:layout_width="wrap_content"
@@ -22,6 +12,17 @@
         android:layout_marginBottom="28dp"
         android:text="ResetDB" />
 
+    <TextView
+        android:id="@+id/tvMessages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:padding="@dimen/padding_medium"
+        android:text="@string/not_yet_clicked"
+        tools:context=".MainActivity" />
+
     <Button
         android:id="@+id/bLetsGetDrinking"
         android:layout_width="wrap_content"
@@ -30,5 +31,13 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
         android:text="@string/have_a_drink" />
+
+    <Button
+        android:id="@+id/bConsumed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="What have I drunk so far..." />
 
 </RelativeLayout>
