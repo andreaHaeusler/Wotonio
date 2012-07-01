@@ -12,7 +12,7 @@ public class MainActivityTest extends
 	private MainActivity activity;
 	private TextView tv;
 	private Button b, resetB;
-	private String initialText, textFormat;
+	private String initialText, textFormat, onFirstClickTextFormat;
 
 	public MainActivityTest() {
 		super("com.rocketeercoders.wotonio.MainActivity", MainActivity.class);
@@ -32,6 +32,8 @@ public class MainActivityTest extends
 				.getString(com.rocketeercoders.wotonio.R.string.not_yet_clicked);
 		textFormat = activity
 				.getString(com.rocketeercoders.wotonio.R.string.you_have_had);
+		onFirstClickTextFormat = activity
+				.getString(com.rocketeercoders.wotonio.R.string.first_click);
 
 	}
 
@@ -49,8 +51,17 @@ public class MainActivityTest extends
 
 	@UiThreadTest
 	public void testButtonPush() {
+		resetB.performClick();
 		b.performClick();
-		assertEquals(String.format(textFormat, 1), (String) tv.getText());
+		assertEquals(onFirstClickTextFormat, (String) tv.getText());
+	}
+	
+	@UiThreadTest
+	public void testButtonPush1(){
+		resetB.performClick();
+		b.performClick();
+		b.performClick();
+		assertEquals(String.format(textFormat, 2), (String) tv.getText());
 	}
 
 }

@@ -14,21 +14,21 @@
         tools:context=".MainActivity" />
 
     <Button
-        android:id="@+id/bLetsGetDrinking"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tvMessages"
-        android:layout_alignLeft="@+id/tvMessages"
-        android:layout_marginBottom="25dp"
-        android:text="@string/have_a_drink" />
-
-    <Button
         android:id="@+id/bResetDB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="28dp"
-        android:text="Reset" />
+        android:text="ResetDB" />
+
+    <Button
+        android:id="@+id/bLetsGetDrinking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvMessages"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:text="@string/have_a_drink" />
 
 </RelativeLayout>

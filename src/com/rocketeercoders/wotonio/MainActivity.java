@@ -56,7 +56,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	private void updateMessage() {
 		if (waterCounter == 0) {
 			tvInfo.setText(getString(R.string.not_yet_clicked));
-		} else {
+		} else if(waterCounter == 1){
+			tvInfo.setText(getString(R.string.first_click));
+		} else{
 			tvInfo.setText(String.format(getString(R.string.you_have_had),
 					waterCounter));
 		}
