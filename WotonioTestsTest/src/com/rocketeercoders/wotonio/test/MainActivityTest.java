@@ -55,9 +55,9 @@ public class MainActivityTest extends
 		b.performClick();
 		assertEquals(onFirstClickTextFormat, (String) tv.getText());
 	}
-	
+
 	@UiThreadTest
-	public void testButtonPush1(){
+	public void testButtonPush1() {
 		resetB.performClick();
 		b.performClick();
 		b.performClick();
