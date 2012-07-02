@@ -36,7 +36,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		// if user wants to check what they have consumed before selecting next
 		// drink...
 		try {
-			loadFromDB();
+			//loadFromDB();
 		} catch (SQLiteException e) {
 			e.printStackTrace();
 			resetDB();
@@ -54,50 +54,24 @@ public class MainActivity extends Activity implements OnClickListener {
 	public void onClick(View arg0) {
 		switch (arg0.getId()) {
 		case R.id.bLetsGetDrinking:
-
 			Intent i = new Intent(MainActivity.this, Drink.class);
 			startActivity(i);
-
-			waterCounter++;
-			saveInDB();
 			break;
 		case R.id.bConsumed:
-
 			Intent i2 = new Intent(MainActivity.this, Graph.class);
 			startActivity(i2);
-
+			break;
 		case R.id.bResetDB:
 			resetDB();
 			break;
 		}
-		updateMessage();
 	}
 
 	private void resetDB() {
-		waterCounter = 0;
 		DBClass db = new DBClass(MainActivity.this);
 		db.openDatabse();
 		db.clearDBStructure();
 		db.closeDatabase();
 	}
 
-	private void saveInDB() {
-		DBClass db = new DBClass(MainActivity.this);
-		db.openDatabse();
-		
-		db.closeDatabase();
-	}
-
-	private void loadFromDB() {
-		DBClass db = new DBClass(MainActivity.this);
-		db.openDatabse();
-		waterCounter = db.getCount();
-		db.closeDatabase();
-	}
-
-	private void updateMessage() {
-		
-		
-
-	}
 }
