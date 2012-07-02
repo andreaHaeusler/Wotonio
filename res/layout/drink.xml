@@ -11,8 +11,15 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="48dp"
         android:layout_marginTop="45dp"
-        android:text="Water" />
+        android:text="@string/water_button" />
 
-    
+    <TextView
+        android:id="@+id/tvDrinks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:text="@string/pick_drink" />
 
 </RelativeLayout>
