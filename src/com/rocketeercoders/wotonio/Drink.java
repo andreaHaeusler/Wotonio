@@ -35,29 +35,29 @@ public class Drink extends Activity implements OnClickListener{
 		switch(arg0.getId()){
 		case R.id.bWater:
 			
-			DBClass dbW = new DBClass(this);
-			dbW.openDatabse();
+			DBClass dbW = new DBClass(null);
+			dbW.openDatabase();
 			waterCounter = dbW.getCount();
 			
 			
 			if (waterCounter == 0) {
-				waterCounter++;
+				waterCounter = waterCounter + 1;
 				dbW.addAGlassOfWater(waterCounter);
 				tvWater.setText(getString(R.string.first_click));
+				dbW.closeDatabase();
 			} else if (waterCounter == 1) {
 				tvWater.setText(getString(R.string.pick_drink));
-				waterCounter++;
+				waterCounter = waterCounter + 1;
 				dbW.addAGlassOfWater(waterCounter);
 				tvWater.setText(String.format(getString(R.string.you_have_had), waterCounter));
+				dbW.closeDatabase();
 			} else {
 				tvWater.setText(getString(R.string.pick_drink));
-				waterCounter++;
+				waterCounter = waterCounter + 1;
 				dbW.addAGlassOfWater(waterCounter);
 				tvWater.setText(String.format(getString(R.string.you_have_had), waterCounter));
+				dbW.closeDatabase();
 			}
-			
-			
-			dbW.closeDatabase();
 			break;
 		}
 	}

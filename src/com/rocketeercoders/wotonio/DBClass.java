@@ -47,7 +47,7 @@ public class DBClass {
 		buttonHasBeenPushed = c;
 	}
 
-	public DBClass openDatabse() {
+	public DBClass openDatabase() {
 		ourHelper = new DbHelper(buttonHasBeenPushed);
 		ourDatabase = ourHelper.getWritableDatabase();
 		return this;

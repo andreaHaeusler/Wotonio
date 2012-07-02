@@ -36,7 +36,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		// if user wants to check what they have consumed before selecting next
 		// drink...
 		try {
-			//loadFromDB();
+			loadFromDB();
 		} catch (SQLiteException e) {
 			e.printStackTrace();
 			resetDB();
@@ -69,8 +69,20 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	private void resetDB() {
 		DBClass db = new DBClass(MainActivity.this);
-		db.openDatabse();
+		db.openDatabase();
 		db.clearDBStructure();
+		db.closeDatabase();
+	}
+	
+	private void saveInDB(){
+		DBClass db = new DBClass(MainActivity.this);
+		db.openDatabase();
+		db.closeDatabase();
+	}
+	
+	private void loadFromDB(){
+		DBClass db = new DBClass(MainActivity.this);
+		db.openDatabase();
 		db.closeDatabase();
 	}
 
