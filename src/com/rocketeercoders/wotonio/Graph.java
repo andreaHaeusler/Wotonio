@@ -8,18 +8,28 @@ import android.support.v4.app.NavUtils;
 
 public class Graph extends Activity {
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.graph);
-    }
+	GraphSurface surface;
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.graph, menu);
-        return true;
-    }
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
 
-    
+		surface = new GraphSurface(this);
+
+		setContentView(surface);
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		surface.pause();
+
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		surface.resume();
+	}
+
 }
-
