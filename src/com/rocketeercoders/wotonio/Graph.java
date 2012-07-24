@@ -1,16 +1,17 @@
 package com.rocketeercoders.wotonio;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 
 public class Graph extends Activity {
 
-	GraphSurface surface;
+	private GraphSurface surface;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		surface = new GraphSurface(this, new DBClass(this));
+		surface = new GraphSurface(this, new WeeklyGraphDataProvider(
+				new DBClass(this)));
 		setContentView(surface);
 	}
 
