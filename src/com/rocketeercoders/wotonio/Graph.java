@@ -5,27 +5,13 @@ import android.os.Bundle;
 
 public class Graph extends Activity {
 
-	private GraphSurface surface;
+	private GraphView view;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		surface = new GraphSurface(this, new WeeklyGraphDataProvider(
-				new DBClass(this)));
-		setContentView(surface);
+		view = new GraphView(this);
+		view.init(new WeeklyGraphDataProvider(new DBClass(this)));
+		setContentView(view);
 	}
-
-	@Override
-	protected void onPause() {
-		super.onPause();
-		surface.pause();
-
-	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-		surface.resume();
-	}
-
 }
