@@ -9,22 +9,18 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener {
 
-	Button b, bResetDB, bConsumed;
-	TextView tvInfo;
-	int waterCounter = 0;
-	int toastTextDuration = Toast.LENGTH_SHORT;
+	private Button b, bResetDB, bConsumed;
+	private int toastTextDuration = Toast.LENGTH_SHORT;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		tvInfo = (TextView) findViewById(R.id.tvMessages);
 		// this buttons should take user to a new page where they can select the
 		// drink that they are going to drink
 		b = (Button) findViewById(R.id.bLetsGetDrinking);

@@ -1,14 +1,9 @@
 package com.rocketeercoders.wotonio.test;
 
-import java.util.List;
-
-import android.app.ActivityManager;
-import android.content.Context;
 import android.test.UiThreadTest;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.rocketeercoders.wotonio.Drink;
 import com.rocketeercoders.wotonio.MainActivity;
 
 public class MainActivityTest extends
@@ -47,21 +42,21 @@ public class MainActivityTest extends
 		assertNotNull(bResetDB);
 		assertEquals(initialText, (String) tv.getText());
 	}
-
-	@UiThreadTest
-	public void testHaveADrinkButtonPush() {
-		bHaveADrink.performClick();
-
-		ActivityManager am = (ActivityManager) activity
-				.getSystemService(Context.ACTIVITY_SERVICE);
-		List<ActivityManager.RunningTaskInfo> processes = am.getRunningTasks(1);
-
-		assertEquals(Drink.class.getName(),
-				processes.get(0).topActivity.getClassName());
-
-		activity.finish();
-	}
-
+	/*
+	 * Test obsolete
+	 * 
+	 * @UiThreadTest public void testHaveADrinkButtonPush() {
+	 * bHaveADrink.performClick();
+	 * 
+	 * ActivityManager am = (ActivityManager) activity
+	 * .getSystemService(Context.ACTIVITY_SERVICE);
+	 * List<ActivityManager.RunningTaskInfo> processes = am.getRunningTasks(1);
+	 * 
+	 * assertEquals(Drink.class.getName(),
+	 * processes.get(0).topActivity.getClassName());
+	 * 
+	 * activity.finish(); }
+	 */
 	/*
 	 * 
 	 * @UiThreadTest public void testResetButton() { bResetDB.performClick();

@@ -19,12 +19,10 @@ public class DBClass implements DBInterface {
 	private static class DbHelper extends SQLiteOpenHelper {
 		public DbHelper(Context context) {
 			super(context, DATABASE_NAME, null, DATABASE_VERSION);
-			// TODO Auto-generated constructor stub
 		}
 
 		@Override
 		public void onCreate(SQLiteDatabase db) {
-			// TODO Auto-generated method stub
 			db.execSQL("CREATE TABLE " + DATABASE_TABLE + " (" + KEY_COUNT
 					+ " INTEGER, " + KEY_TIMESTAMP + " INTEGER)");
 
@@ -32,7 +30,6 @@ public class DBClass implements DBInterface {
 
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-			// TODO Auto-generated method stub
 			db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
 			onCreate(db);
 

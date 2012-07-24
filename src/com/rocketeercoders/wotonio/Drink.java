@@ -4,8 +4,8 @@ import android.content.Context;
 
 public class Drink {
 
-	int waterCounter = 0;
-	String toastText = "";
+	private int waterCounter = 0;
+	private String toastText = "";
 	private DBInterface db;
 	private Context context;
 
