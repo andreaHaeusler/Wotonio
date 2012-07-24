@@ -1,66 +1,44 @@
 package com.rocketeercoders.wotonio;
 
-import android.app.Activity;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.TextView;
+import android.content.Context;
 
-public class Drink extends Activity implements OnClickListener {
+public class Drink {
 
 	int waterCounter = 0;
-	TextView tvWater;
-	Button bWater;
+	String toastText = "";
+	private DBInterface db;
+	private Context context;
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.drink);
-
-		tvWater = (TextView) findViewById(R.id.tvDrinks);
-		tvWater.setText(R.string.pick_drink);
-		bWater = (Button) findViewById(R.id.bWater);
-		bWater.setOnClickListener(this);
+	public Drink(DBInterface db, Context context) {
+		this.db = db;
+		this.context = context;
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.drink, menu);
-		return true;
-	}
+	public void updateDatabase() {
+		db.openDatabase();
+		waterCounter = db.getCount();
 
-	@Override
-	public void onClick(View arg0) {
-		switch (arg0.getId()) {
-		case R.id.bWater:
-			DBInterface dbW = new DBClass(this);
-			dbW.openDatabase();
-			waterCounter = dbW.getCount();
-
-			if (waterCounter == 0) {
-				waterCounter = waterCounter + 1;
-				dbW.addAGlassOfWater(waterCounter);
-				tvWater.setText(getString(R.string.first_click));
-			} else if (waterCounter == 1) {
-				tvWater.setText(getString(R.string.pick_drink));
-				waterCounter = waterCounter + 1;
-				dbW.addAGlassOfWater(waterCounter);
-				tvWater.setText(String.format(getString(R.string.you_have_had),
-						waterCounter));
-			} else {
-				tvWater.setText(getString(R.string.pick_drink));
-				waterCounter = waterCounter + 1;
-				dbW.addAGlassOfWater(waterCounter);
-				tvWater.setText(String.format(getString(R.string.you_have_had),
-						waterCounter));
-			}
-
-			dbW.closeDatabase();
-			break;
+		if (waterCounter == 0) {
+			waterCounter = waterCounter + 1;
+			db.addAGlassOfWater(waterCounter);
+			toastText = context.getString(R.string.first_click);
+		} else if (waterCounter == 1) {
+			waterCounter = waterCounter + 1;
+			db.addAGlassOfWater(waterCounter);
+			toastText = String.format(context.getString(R.string.you_have_had),
+					waterCounter);
+		} else {
+			waterCounter = waterCounter + 1;
+			db.addAGlassOfWater(waterCounter);
+			toastText = String.format(context.getString(R.string.you_have_had),
+					waterCounter);
 		}
+		db.closeDatabase();
+	}
+
+	public String getToastText() {
+		return toastText;
+
 	}
 
 }
