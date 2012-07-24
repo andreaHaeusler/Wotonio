@@ -24,10 +24,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Drink"
-            android:label="@string/title_activity_graph" >
-        </activity>
-        <activity
             android:name=".Graph"
             android:label="@string/title_activity_graph" >
         </activity>
