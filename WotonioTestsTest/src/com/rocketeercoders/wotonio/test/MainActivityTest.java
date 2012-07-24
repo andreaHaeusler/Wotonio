@@ -3,7 +3,6 @@ package com.rocketeercoders.wotonio.test;
 import java.util.List;
 
 import android.app.ActivityManager;
-import android.app.Service;
 import android.content.Context;
 import android.test.UiThreadTest;
 import android.widget.Button;
@@ -18,7 +17,7 @@ public class MainActivityTest extends
 	private MainActivity activity;
 	private TextView tv;
 	private Button bHaveADrink, bWhatHaveIDrunk, bResetDB;
-	private String initialText, textFormat, onFirstClickTextFormat;
+	private String initialText;
 
 	public MainActivityTest() {
 		super("com.rocketeercoders.wotonio.MainActivity", MainActivity.class);
@@ -38,11 +37,6 @@ public class MainActivityTest extends
 				.findViewById(com.rocketeercoders.wotonio.R.id.bResetDB);
 		initialText = activity
 				.getString(com.rocketeercoders.wotonio.R.string.not_yet_clicked);
-		textFormat = activity
-				.getString(com.rocketeercoders.wotonio.R.string.you_have_had);
-		onFirstClickTextFormat = activity
-				.getString(com.rocketeercoders.wotonio.R.string.first_click);
-
 	}
 
 	@UiThreadTest
