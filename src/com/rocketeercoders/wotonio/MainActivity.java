@@ -1,20 +1,25 @@
 package com.rocketeercoders.wotonio;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteException;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener {
 
 	Button b, bResetDB, bConsumed;
 	TextView tvInfo;
 	int waterCounter = 0;
+	int toastTextDuration = Toast.LENGTH_SHORT;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -54,8 +59,11 @@ public class MainActivity extends Activity implements OnClickListener {
 	public void onClick(View arg0) {
 		switch (arg0.getId()) {
 		case R.id.bLetsGetDrinking:
-			Intent i = new Intent(MainActivity.this, Drink.class);
-			startActivity(i);
+			Drink water = new Drink(new DBClass(this), this);
+			water.updateDatabase();
+			Toast toast = Toast.makeText(getApplicationContext(), water.getToastText(),toastTextDuration);
+			toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER_VERTICAL, 0, 0);
+			toast.show();
 			break;
 		case R.id.bConsumed:
 			Intent i2 = new Intent(MainActivity.this, Graph.class);
