@@ -13,7 +13,7 @@ public class WeeklyGraphDataProvider {
 
 	public int getMax() {
 		cache = new int[7];
-		DBClass db = new DBClass(context);
+		DBInterface db = new DBClass(context);
 		db.openDatabase();
 		int max = 0;
 		for (int i = 0; i < 7; i++) {

@@ -4,6 +4,7 @@ import java.util.List;
 
 import android.app.ActivityManager;
 import android.app.Service;
+import android.content.Context;
 import android.test.UiThreadTest;
 import android.widget.Button;
 import android.widget.TextView;
@@ -58,12 +59,12 @@ public class MainActivityTest extends
 		bHaveADrink.performClick();
 
 		ActivityManager am = (ActivityManager) activity
-				.getSystemService(Service.ACTIVITY_SERVICE);
+				.getSystemService(Context.ACTIVITY_SERVICE);
 		List<ActivityManager.RunningTaskInfo> processes = am.getRunningTasks(1);
-		
+
 		assertEquals(Drink.class.getName(),
 				processes.get(0).topActivity.getClassName());
-		
+
 		activity.finish();
 	}
 

@@ -2,9 +2,6 @@ package com.rocketeercoders.wotonio;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.support.v4.app.NavUtils;
 
 public class Graph extends Activity {
 
@@ -13,9 +10,7 @@ public class Graph extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		surface = new GraphSurface(this);
-
 		setContentView(surface);
 	}
 

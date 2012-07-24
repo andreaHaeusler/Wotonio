@@ -68,20 +68,20 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 
 	private void resetDB() {
-		DBClass db = new DBClass(MainActivity.this);
+		DBInterface db = new DBClass(MainActivity.this);
 		db.openDatabase();
 		db.clearDBStructure();
 		db.closeDatabase();
 	}
 	
 	private void saveInDB(){
-		DBClass db = new DBClass(MainActivity.this);
+		DBInterface db = new DBClass(MainActivity.this);
 		db.openDatabase();
 		db.closeDatabase();
 	}
 	
 	private void loadFromDB(){
-		DBClass db = new DBClass(MainActivity.this);
+		DBInterface db = new DBClass(MainActivity.this);
 		db.openDatabase();
 		db.closeDatabase();
 	}

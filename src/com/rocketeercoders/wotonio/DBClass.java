@@ -1,16 +1,13 @@
 package com.rocketeercoders.wotonio;
 
-import java.sql.Date;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class DBClass {
+public class DBClass implements DBInterface {
 	private static final String DATABASE_NAME = "KeepingTrackOfWaterDrunk";
-	public static final int DATABASE_VERSION = 1;
 	private static final String DATABASE_TABLE = "waterTable";
 	private static final String KEY_COUNT = "count";
 	private static final String KEY_TIMESTAMP = "timestamp";
@@ -47,16 +44,19 @@ public class DBClass {
 		buttonHasBeenPushed = c;
 	}
 
-	public DBClass openDatabase() {
+	@Override
+	public DBInterface openDatabase() {
 		ourHelper = new DbHelper(buttonHasBeenPushed);
 		ourDatabase = ourHelper.getWritableDatabase();
 		return this;
 	}
 
+	@Override
 	public void closeDatabase() {
 		ourHelper.close();
 	}
 
+	@Override
 	public int getCount() {
 		int dbValue = 0;
 		String[] columns = new String[] { KEY_COUNT, KEY_TIMESTAMP };
@@ -70,6 +70,7 @@ public class DBClass {
 		return dbValue;
 	}
 
+	@Override
 	public void addAGlassOfWater(int waterCounter) {
 		ContentValues cv = new ContentValues();
 		cv.put(KEY_COUNT, waterCounter);
@@ -77,11 +78,13 @@ public class DBClass {
 		ourDatabase.insert(DATABASE_TABLE, null, cv);
 	}
 
+	@Override
 	public void clearDBStructure() {
 		ourHelper.onUpgrade(ourDatabase, 0, 0);
 
 	}
 
+	@Override
 	public int getCountDrunkBetween(long aDayAgo, long now) {
 		Cursor c = ourDatabase.query(DATABASE_TABLE,
 				new String[] { KEY_TIMESTAMP }, KEY_TIMESTAMP + " > ? AND "

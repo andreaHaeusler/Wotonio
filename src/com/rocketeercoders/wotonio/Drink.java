@@ -36,7 +36,7 @@ public class Drink extends Activity implements OnClickListener {
 	public void onClick(View arg0) {
 		switch (arg0.getId()) {
 		case R.id.bWater:
-			DBClass dbW = new DBClass(this);
+			DBInterface dbW = new DBClass(this);
 			dbW.openDatabase();
 			waterCounter = dbW.getCount();
 
