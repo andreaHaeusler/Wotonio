@@ -1,19 +1,16 @@
 package com.rocketeercoders.wotonio;
 
-import android.content.Context;
-
 public class WeeklyGraphDataProvider {
 
-	private Context context;
 	private int[] cache;
+	private DBInterface db;
 
-	public WeeklyGraphDataProvider(Context context) {
-		this.context = context;
+	public WeeklyGraphDataProvider(DBInterface db) {
+		this.db = db;
 	}
 
 	public int getMax() {
 		cache = new int[7];
-		DBInterface db = new DBClass(context);
 		db.openDatabase();
 		int max = 0;
 		for (int i = 0; i < 7; i++) {

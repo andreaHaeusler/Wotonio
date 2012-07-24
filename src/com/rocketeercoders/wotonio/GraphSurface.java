@@ -16,10 +16,12 @@ public class GraphSurface extends SurfaceView implements Runnable {
 	boolean isRunning = false;
 	Context context;
 	Random r;
+	private DBInterface db;
 
-	public GraphSurface(Context context) {
+	public GraphSurface(Context context, DBInterface db) {
 		super(context);
 		this.context = context;
+		this.db = db;
 		holder = getHolder();
 		r = new Random();
 	}
@@ -60,8 +62,7 @@ public class GraphSurface extends SurfaceView implements Runnable {
 			int graphHeight = canvas.getHeight() / 3;
 
 			int fullBar = graphHeight - (4 * barWidth);
-			WeeklyGraphDataProvider provider = new WeeklyGraphDataProvider(
-					context);
+			WeeklyGraphDataProvider provider = new WeeklyGraphDataProvider(db);
 			int max = provider.getMax();
 
 			int verticalBlock = fullBar / max;

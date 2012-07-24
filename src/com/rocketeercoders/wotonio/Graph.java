@@ -10,7 +10,7 @@ public class Graph extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		surface = new GraphSurface(this);
+		surface = new GraphSurface(this, new DBClass(this));
 		setContentView(surface);
 	}
 
