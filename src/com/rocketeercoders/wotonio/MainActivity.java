@@ -1,32 +1,26 @@
 package com.rocketeercoders.wotonio;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteException;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener {
 
-	Button b, bResetDB, bConsumed;
-	TextView tvInfo;
-	int waterCounter = 0;
-	int toastTextDuration = Toast.LENGTH_SHORT;
+	private Button b, bResetDB, bConsumed;
+	private int toastTextDuration = Toast.LENGTH_SHORT;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		tvInfo = (TextView) findViewById(R.id.tvMessages);
 		// this buttons should take user to a new page where they can select the
 		// drink that they are going to drink
 		b = (Button) findViewById(R.id.bLetsGetDrinking);
@@ -61,8 +55,10 @@ public class MainActivity extends Activity implements OnClickListener {
 		case R.id.bLetsGetDrinking:
 			Drink water = new Drink(new DBClass(this), this);
 			water.updateDatabase();
-			Toast toast = Toast.makeText(getApplicationContext(), water.getToastText(),toastTextDuration);
-			toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER_VERTICAL, 0, 0);
+			Toast toast = Toast.makeText(getApplicationContext(),
+					water.getToastText(), toastTextDuration);
+			toast.setGravity(Gravity.CENTER_HORIZONTAL
+					| Gravity.CENTER_VERTICAL, 0, 0);
 			toast.show();
 			break;
 		case R.id.bConsumed:
@@ -81,14 +77,8 @@ public class MainActivity extends Activity implements OnClickListener {
 		db.clearDBStructure();
 		db.closeDatabase();
 	}
-	
-	private void saveInDB(){
-		DBInterface db = new DBClass(MainActivity.this);
-		db.openDatabase();
-		db.closeDatabase();
-	}
-	
-	private void loadFromDB(){
+
+	private void loadFromDB() {
 		DBInterface db = new DBClass(MainActivity.this);
 		db.openDatabase();
 		db.closeDatabase();

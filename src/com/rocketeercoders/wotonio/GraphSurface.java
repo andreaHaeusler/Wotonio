@@ -1,7 +1,5 @@
 package com.rocketeercoders.wotonio;
 
-import java.util.Random;
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -11,19 +9,16 @@ import android.view.SurfaceView;
 
 public class GraphSurface extends SurfaceView implements Runnable {
 
-	SurfaceHolder holder;
-	Thread thread = null;
-	boolean isRunning = false;
-	Context context;
-	Random r;
-	private DBInterface db;
+	private SurfaceHolder holder;
+	private Thread thread = null;
+	private boolean isRunning = false;
+	private WeeklyGraphDataProvider weeklyGraphDataProvider;
 
-	public GraphSurface(Context context, DBInterface db) {
+	public GraphSurface(Context context,
+			WeeklyGraphDataProvider weeklyGraphDataProvider) {
 		super(context);
-		this.context = context;
-		this.db = db;
 		holder = getHolder();
-		r = new Random();
+		this.weeklyGraphDataProvider = weeklyGraphDataProvider;
 	}
 
 	public void pause() {
@@ -62,8 +57,7 @@ public class GraphSurface extends SurfaceView implements Runnable {
 			int graphHeight = canvas.getHeight() / 3;
 
 			int fullBar = graphHeight - (4 * barWidth);
-			WeeklyGraphDataProvider provider = new WeeklyGraphDataProvider(db);
-			int max = provider.getMax();
+			int max = weeklyGraphDataProvider.getMax();
 
 			int verticalBlock = fullBar / max;
 
@@ -73,7 +67,7 @@ public class GraphSurface extends SurfaceView implements Runnable {
 			ourBlue.setColor(Color.BLUE);
 
 			for (int day = 0; day < 7; day++) {
-				int amount = provider.getValueDaysAgo(6 - day);
+				int amount = weeklyGraphDataProvider.getValueDaysAgo(6 - day);
 
 				canvas.drawRect((day + 1) * 2 * barWidth, (2 * barWidth)
 						+ (fullBar - (amount * verticalBlock)),
