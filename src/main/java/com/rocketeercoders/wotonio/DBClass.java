@@ -41,19 +41,16 @@ public class DBClass implements DBInterface {
 		buttonHasBeenPushed = c;
 	}
 
-	@Override
 	public DBInterface openDatabase() {
 		ourHelper = new DbHelper(buttonHasBeenPushed);
 		ourDatabase = ourHelper.getWritableDatabase();
 		return this;
 	}
 
-	@Override
 	public void closeDatabase() {
 		ourHelper.close();
 	}
 
-	@Override
 	public int getCount() {
 		int dbValue = 0;
 		String[] columns = new String[] { KEY_COUNT, KEY_TIMESTAMP };
@@ -67,7 +64,6 @@ public class DBClass implements DBInterface {
 		return dbValue;
 	}
 
-	@Override
 	public void addAGlassOfWater(int waterCounter) {
 		ContentValues cv = new ContentValues();
 		cv.put(KEY_COUNT, waterCounter);
@@ -75,13 +71,11 @@ public class DBClass implements DBInterface {
 		ourDatabase.insert(DATABASE_TABLE, null, cv);
 	}
 
-	@Override
 	public void clearDBStructure() {
 		ourHelper.onUpgrade(ourDatabase, 0, 0);
 
 	}
 
-	@Override
 	public int getCountDrunkBetween(long aDayAgo, long now) {
 		Cursor c = ourDatabase.query(DATABASE_TABLE,
 				new String[] { KEY_TIMESTAMP }, KEY_TIMESTAMP + " > ? AND "
