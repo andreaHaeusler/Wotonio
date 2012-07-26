@@ -9,6 +9,11 @@ import com.rocketeercoders.wotonio.DBInterface;
 import com.rocketeercoders.wotonio.WeeklyGraphDataProvider;
 
 public class WeeklyGraphDataProviderTest {
+	
+	@Test
+	public void testThing() {
+		assertTrue(true);
+	}
 
 	@Test
 	public void testGetMax() {

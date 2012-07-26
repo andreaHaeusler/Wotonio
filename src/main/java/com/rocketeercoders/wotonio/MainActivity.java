@@ -49,7 +49,6 @@ public class MainActivity extends Activity implements OnClickListener {
 		return true;
 	}
 
-	@Override
 	public void onClick(View arg0) {
 		switch (arg0.getId()) {
 		case R.id.bLetsGetDrinking:
