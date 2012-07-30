@@ -22,18 +22,6 @@
         android:layout_marginBottom="18dp"
         android:text="What have I drunk so far..." />
 
-    <TextView
-        android:id="@+id/tvMessages"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:padding="@dimen/padding_medium"
-        android:text="@string/not_yet_clicked"
-        android:textColor="#ffffff"
-        tools:context=".MainActivity" />
-
     <ImageButton
         android:id="@+id/bLetsGetDrinking"
         android:layout_width="wrap_content"
