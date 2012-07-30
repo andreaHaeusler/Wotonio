@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00137F" >
+    android:background="@drawable/background_option">
 
     <Button
         android:id="@+id/bResetDB"
@@ -34,21 +34,13 @@
         android:textColor="#ffffff"
         tools:context=".MainActivity" />
 
-    <Button
+    <ImageButton
         android:id="@+id/bLetsGetDrinking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvMessages"
         android:layout_centerHorizontal="true"
-        android:text="@string/have_a_drink" />
-
-    <ImageButton
-        android:id="@+id/imageButton1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bLetsGetDrinking"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="42dp"
         android:src="@drawable/water_dddrop" />
 
 </RelativeLayout>

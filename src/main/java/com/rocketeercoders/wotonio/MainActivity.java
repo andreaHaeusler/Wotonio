@@ -11,12 +11,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener {
 
-	private Button b, bResetDB, bConsumed;
+	private ImageButton b; 
+	private Button bResetDB, bConsumed;
 	private int toastTextDuration = Toast.LENGTH_SHORT;
 
 
@@ -30,7 +32,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 		// this buttons should take user to a new page where they can select the
 		// drink that they are going to drink
-		b = (Button) findViewById(R.id.bLetsGetDrinking);
+		b = (ImageButton) findViewById(R.id.bLetsGetDrinking);
 		
 		
 		// the reset button is only for our use, not for the user
