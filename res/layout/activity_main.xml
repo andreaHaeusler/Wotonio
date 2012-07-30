@@ -1,8 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" 
-    android:background="#000000">
+    android:layout_height="match_parent"
+    android:background="#00137F" >
 
     <Button
         android:id="@+id/bResetDB"
@@ -24,7 +24,7 @@
         android:padding="@dimen/padding_medium"
         android:text="@string/not_yet_clicked"
         tools:context=".MainActivity" />
-
+
     <Button
         android:id="@+id/bLetsGetDrinking"
         android:layout_width="wrap_content"
@@ -38,8 +38,9 @@
         android:id="@+id/bConsumed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/bResetDB"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_marginBottom="18dp"
         android:text="What have I drunk so far..." />
 
 </RelativeLayout>
