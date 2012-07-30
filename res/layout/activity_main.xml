@@ -13,27 +13,6 @@
         android:layout_marginBottom="28dp"
         android:text="ResetDB" />
 
-    <TextView
-        android:textColor="#ffffff"
-        android:id="@+id/tvMessages"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
-        android:padding="@dimen/padding_medium"
-        android:text="@string/not_yet_clicked"
-        tools:context=".MainActivity" />
-
-    <Button
-        android:id="@+id/bLetsGetDrinking"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvMessages"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
-        android:text="@string/have_a_drink" />
-
     <Button
         android:id="@+id/bConsumed"
         android:layout_width="wrap_content"
@@ -42,5 +21,34 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="18dp"
         android:text="What have I drunk so far..." />
+
+    <TextView
+        android:id="@+id/tvMessages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:padding="@dimen/padding_medium"
+        android:text="@string/not_yet_clicked"
+        android:textColor="#ffffff"
+        tools:context=".MainActivity" />
+
+    <Button
+        android:id="@+id/bLetsGetDrinking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvMessages"
+        android:layout_centerHorizontal="true"
+        android:text="@string/have_a_drink" />
+
+    <ImageButton
+        android:id="@+id/imageButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bLetsGetDrinking"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/water_dddrop" />
 
 </RelativeLayout>
