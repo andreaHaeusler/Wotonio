@@ -9,5 +9,9 @@
     <string name="you_have_had">Another glass of water!? WooHoo!! That makes %d
 		glasses so far.</string>
     <string name="title_activity_graph">Graph</string>
+    <string name="fouth_glass_of_water">Half way to a healthy 8 ! </string>
+    <string name="third_glass_of_water">Pee-Pee time???</string>
+    <string name="super_glass">WELL DONE!! </string>
+    <string name="over_ten_glasses_of_water">OK...10...Nice round number 10 is. </string>
 
 </resources>

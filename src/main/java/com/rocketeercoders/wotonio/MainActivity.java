@@ -19,7 +19,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	private ImageButton b; 
 	private Button bResetDB, bConsumed;
-	private int toastTextDuration = Toast.LENGTH_SHORT;
+	private int toastTextDuration = Toast.LENGTH_LONG;
 
 
 	@Override
