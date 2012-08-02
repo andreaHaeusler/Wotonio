@@ -12,7 +12,6 @@ import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.SeekBar;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener {
@@ -21,11 +20,11 @@ public class MainActivity extends Activity implements OnClickListener {
 	private Button bResetDB, bConsumed;
 	private int toastTextDuration = Toast.LENGTH_LONG;
 
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//this will get rid of the inevitable banding effect (stripes in background)...
+		// this will get rid of the inevitable banding effect (stripes in
+		// background)...
 		getWindow().setFormat(PixelFormat.RGBA_8888);
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_DITHER);
 		setContentView(R.layout.activity_main);
