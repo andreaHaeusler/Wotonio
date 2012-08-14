@@ -8,26 +8,29 @@
         android:id="@+id/bResetDB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
-        android:layout_marginRight="48dp"
+        android:layout_marginBottom="23dp"
         android:text="ResetDB" />
 
     <Button
-        android:id="@+id/bConsumed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="20dp"
-        android:text="What have I drunk so far..." />
-
-    <ImageButton
         android:id="@+id/bLetsGetDrinking"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/bResetDB"
-        android:layout_marginRight="90dp"
-        android:src="@drawable/water_dddrop" />
+        android:layout_width="145dp"
+        android:layout_height="145dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/test8"
+        android:text="Water"
+        android:textSize="35dp" />
+
+    <Button
+        android:id="@+id/bConsumed"
+        android:layout_width="145dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/bLetsGetDrinking"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/button_shape"
+        android:text="Graph"
+        android:textSize="25dp" />
 
 </RelativeLayout>

@@ -14,21 +14,25 @@
         android:text="ResetDB" />
 
     <Button
-        android:id="@+id/bConsumed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/bResetDB"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="18dp"
-        android:text="What have I drunk so far..." />
-
-    <ImageButton
         android:id="@+id/bLetsGetDrinking"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvMessages"
+        android:layout_width="158dp"
+        android:layout_height="165dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp"
-        android:src="@drawable/water_dddrop" />
+        android:layout_marginTop="66dp"
+        android:background="@drawable/test8"
+        android:text="Water"
+        android:textSize="55dp" />
+
+    <Button
+        android:id="@+id/bConsumed"
+        android:layout_width="158dp"
+        android:layout_height="45dp"
+        android:layout_alignLeft="@+id/bLetsGetDrinking"
+        android:layout_below="@+id/bLetsGetDrinking"
+        android:layout_marginTop="54dp"
+        android:background="@drawable/button_shape"
+        android:text="Graph"
+        android:textSize="25dp" />
 
 </RelativeLayout>
