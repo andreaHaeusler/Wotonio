@@ -76,11 +76,11 @@ public class DBClass implements DBInterface {
 
 	}
 
-	public int getCountDrunkBetween(long aDayAgo, long now) {
+	public int getCountDrunkBetween(long from, long to) {
 		Cursor c = ourDatabase.query(DATABASE_TABLE,
 				new String[] { KEY_TIMESTAMP }, KEY_TIMESTAMP + " > ? AND "
 						+ KEY_TIMESTAMP + " <= ?",
-				new String[] { Long.toString(aDayAgo), Long.toString(now) },
+				new String[] { Long.toString(from), Long.toString(to) },
 				null, null, null);
 		return c.getCount();
 	}
