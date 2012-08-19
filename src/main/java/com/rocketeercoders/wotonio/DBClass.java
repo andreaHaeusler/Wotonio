@@ -1,5 +1,7 @@
 package com.rocketeercoders.wotonio;
 
+import java.util.Date;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -83,6 +85,19 @@ public class DBClass implements DBInterface {
 				new String[] { Long.toString(from), Long.toString(to) }, null,
 				null, null);
 		return c.getCount();
+	}
+
+	public int getDrunkOnThisCalendarDay() {
+		Date today = new Date();
+		Date startOfDay = new Date(today.getYear(), today.getMonth(),
+				today.getDay(), 0, 0, 0);
+		Date endOfDay = new Date(today.getYear(), today.getMonth(),
+				today.getDay() + 1, 0, 0, 0);
+
+		long start = (startOfDay.getTime() / 1000L);
+		long end = (endOfDay.getTime() / 1000L);
+		int drunkOnDay = getCountDrunkBetween(start, end);
+		return drunkOnDay;
 	}
 
 	public int getDrunkOnNDaysAgo(int n) {
