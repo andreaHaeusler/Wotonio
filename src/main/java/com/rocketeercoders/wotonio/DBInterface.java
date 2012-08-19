@@ -15,5 +15,7 @@ public interface DBInterface {
 	public abstract void clearDBStructure();
 
 	public abstract int getCountDrunkBetween(long aDayAgo, long now);
+	
+	public abstract int getDrunkOnNDaysAgo(int n);
 
 }

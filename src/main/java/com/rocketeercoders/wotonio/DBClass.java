@@ -84,4 +84,12 @@ public class DBClass implements DBInterface {
 				null, null, null);
 		return c.getCount();
 	}
+	
+	public int getDrunkOnNDaysAgo(int n) {
+		long now = (System.currentTimeMillis() / 1000L) - (n * 86400);
+		long aDayAgo = (System.currentTimeMillis() / 1000L)
+				- ((n + 1) * 86400);
+		int drunkOnDay = getCountDrunkBetween(aDayAgo, now);
+		return drunkOnDay;
+	}
 }
