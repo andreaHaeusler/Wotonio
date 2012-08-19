@@ -15,24 +15,24 @@
 
     <Button
         android:id="@+id/bLetsGetDrinking"
-        android:layout_width="158dp"
+        android:layout_width="160dp"
         android:layout_height="165dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="66dp"
         android:background="@drawable/test8"
-        android:text="Water"
-        android:textSize="55dp" />
+        android:text="@string/water"
+        android:textSize="53dp" />
 
     <Button
         android:id="@+id/bConsumed"
-        android:layout_width="158dp"
+        android:layout_width="160dp"
         android:layout_height="45dp"
         android:layout_alignLeft="@+id/bLetsGetDrinking"
         android:layout_below="@+id/bLetsGetDrinking"
         android:layout_marginTop="54dp"
         android:background="@drawable/button_shape"
-        android:text="Graph"
+        android:text="@string/graph"
         android:textSize="25dp" />
 
 </RelativeLayout>

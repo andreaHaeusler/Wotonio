@@ -27,19 +27,19 @@ public class Drink {
 			db.addAGlassOfWater(waterCounter);
 			toastText = String.format(context.getString(R.string.you_have_had),
 					waterCounter);
-		}else if(waterCounter == 2) {
+		} else if (waterCounter == 2) {
 			waterCounter = waterCounter + 1;
 			db.addAGlassOfWater(waterCounter);
-			toastText = context.getString(R.string.third_glass_of_water); 
-		} else if (waterCounter == 3){
+			toastText = context.getString(R.string.third_glass_of_water);
+		} else if (waterCounter == 3) {
 			waterCounter = waterCounter + 1;
 			db.addAGlassOfWater(waterCounter);
 			toastText = context.getString(R.string.fouth_glass_of_water);
-		}else if(waterCounter == 7) {
+		} else if (waterCounter == 7) {
 			waterCounter = waterCounter + 1;
 			db.addAGlassOfWater(waterCounter);
 			toastText = context.getString(R.string.super_glass);
-		}else if(waterCounter == 9) {
+		} else if (waterCounter == 9) {
 			waterCounter = waterCounter + 1;
 			db.addAGlassOfWater(waterCounter);
 			toastText = context.getString(R.string.over_ten_glasses_of_water);
@@ -56,5 +56,4 @@ public class Drink {
 		return toastText;
 
 	}
-
 }

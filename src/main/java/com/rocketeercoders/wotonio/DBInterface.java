@@ -16,4 +16,5 @@ public interface DBInterface {
 
 	public abstract int getCountDrunkBetween(long from, long to);
 
+	public abstract int getDrunkOnNDaysAgo(int n);
 }

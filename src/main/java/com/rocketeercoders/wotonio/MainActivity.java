@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener {
 
-	private Button b;
+	private Button b; 
 	private Button bResetDB, bConsumed;
 	private int toastTextDuration = Toast.LENGTH_LONG;
 
@@ -28,13 +28,11 @@ public class MainActivity extends Activity implements OnClickListener {
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_DITHER);
 		setContentView(R.layout.activity_main);
 
-		// this buttons should take user to a new page where they can select the
-		// drink that they are going to drink
 		b = (Button) findViewById(R.id.bLetsGetDrinking);
 
 		// the reset button is only for our use, not for the user
 		bResetDB = (Button) findViewById(R.id.bResetDB);
-		// this button should take user to graph indicating consumtion
+		// this button should take user to graph indicating consumption
 		bConsumed = (Button) findViewById(R.id.bConsumed);
 
 		b.setOnClickListener(this);

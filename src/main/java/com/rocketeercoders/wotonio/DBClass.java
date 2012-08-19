@@ -80,8 +80,15 @@ public class DBClass implements DBInterface {
 		Cursor c = ourDatabase.query(DATABASE_TABLE,
 				new String[] { KEY_TIMESTAMP }, KEY_TIMESTAMP + " > ? AND "
 						+ KEY_TIMESTAMP + " <= ?",
-				new String[] { Long.toString(from), Long.toString(to) },
-				null, null, null);
+				new String[] { Long.toString(from), Long.toString(to) }, null,
+				null, null);
 		return c.getCount();
+	}
+
+	public int getDrunkOnNDaysAgo(int n) {
+		long now = (System.currentTimeMillis() / 1000L) - (n * 86400);
+		long aDayAgo = (System.currentTimeMillis() / 1000L) - ((n + 1) * 86400);
+		int drunkOnDay = getCountDrunkBetween(aDayAgo, now);
+		return drunkOnDay;
 	}
 }
