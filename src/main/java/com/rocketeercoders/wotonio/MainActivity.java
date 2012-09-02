@@ -59,9 +59,12 @@ public class MainActivity extends Activity implements OnClickListener {
 		switch (arg0.getId()) {
 		case R.id.bLetsGetDrinking:
 			Drink water = new Drink(new DBClass(this), this);
+			
+			water.notEndOfDay();
 			water.updateDatabase();
+			
 			Toast toast = Toast.makeText(getApplicationContext(),
-					water.getToastText(), toastTextDuration);
+					water.updateToastText(), toastTextDuration);
 			toast.setGravity(Gravity.CENTER_HORIZONTAL
 					| Gravity.CENTER_VERTICAL, 0, 0);
 			toast.show();
