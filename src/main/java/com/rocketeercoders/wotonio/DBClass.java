@@ -61,6 +61,8 @@ public class DBClass implements DBInterface {
 
 		for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
 			dbValue = c.getInt(0);
+			long tStamp = c.getLong(1);
+			System.out.println(tStamp);
 		}
 
 		return dbValue;
@@ -89,10 +91,13 @@ public class DBClass implements DBInterface {
 
 	public int getDrunkOnThisCalendarDay() {
 		Date today = new Date();
+		String todayString = today.toString();
 		Date startOfDay = new Date(today.getYear(), today.getMonth(),
 				today.getDay(), 0, 0, 0);
+		String startString = startOfDay.toString();
 		Date endOfDay = new Date(today.getYear(), today.getMonth(),
 				today.getDay() + 1, 0, 0, 0);
+		String endString = endOfDay.toString();
 
 		long start = (startOfDay.getTime() / 1000L);
 		long end = (endOfDay.getTime() / 1000L);
